@@ -1,0 +1,106 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+  } */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the nav stays above other content */
+    background-color: #fff; /* Add a background color to make it visible */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional for better visibility */
+  }
+
+
+  .role-container {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .role-header h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .role-header .role-name {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .role-header .back-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .permissions-section h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .permissions-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .permissions-list label {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .action-buttons {
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .btn {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-danger {
+    background-color: #ff4d4d;
+  }
+
+  .btn-danger:hover {
+    background-color: #e60000;
+  }

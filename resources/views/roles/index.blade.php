@@ -24,6 +24,7 @@
                             <td>{{ $role->id }}</td>
                             <td>{{ $role->name }}</td>
                             <td>{{ $role->guard_name }}</td>
+                            {{-- <td>{{ $role->guard_name }}</td> --}}
                             <td>
                                 <a href="{{ route('give_permission', $role->id) }}" class="btn btn-success btn-sm">Give Permission</a>
                                 <a href="{{ url('/roles/'.$role->id.'/edit') }}" class="btn btn-warning btn-sm">Edit</a>

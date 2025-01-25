@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Validator;
@@ -71,9 +72,19 @@ class RoleController extends Controller
     }
     public function give_permission($roleId)
     {
-        dd(11);
-        $data['permission']=Permission::all();
+        $data['permissions']=Permission::all();
         $data['role']=Role::find($roleId);
+        $data['rolePermissions'] = DB::table("role_has_permissions")
+            ->where("role_has_permissions.role_id",$roleId)
+            ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
+            ->all();
         return view('roles.give_permission',$data);
+    }
+    public function update_permission(Request $request,$roleId)
+    {
+        $role=Role::find($roleId);
+        $role->syncPermissions($request->permissions);
+
+        return redirect()->back()->with('success','Permission updated successfully');
     }
 }

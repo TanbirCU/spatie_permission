@@ -39,6 +39,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#categories">Categories</a>
                     </li>
+
+                    @if(Auth::user())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/logout') }}">LogOut</a>
+                        </li>
+                    @else
+                        <form action="{{ route('logout') }}" method="POST" style="display: inline-block;">
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+                        </form>
+
+                    @endif
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
                 </ul>
             </div>
         </div>

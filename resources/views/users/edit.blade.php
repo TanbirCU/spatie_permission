@@ -41,6 +41,17 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="form-group mt-2">
+                    <label for="roles">Roles</label>
+                    <select name="roles[]" id="roles" class="form-control @error('roles') is-invalid @enderror" multiple>
+                        @foreach($roles as $role)
+                            <option value="{{ $role->id }}" {{ in_array($role->id, $userRoles) ? 'selected' : '' }}>{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('roles')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
                 <div class="form-group mt-3">
                     <button type="submit" class="btn btn-success">Update</button>

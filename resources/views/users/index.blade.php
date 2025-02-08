@@ -15,6 +15,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Roles</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -24,10 +25,17 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            {{-- <td>{{ $user->guard_name }}</td> --}}
+                            <td>
+                                @if(!empty($user->getRoleNames()))
+                                    @foreach($user->getRoleNames() as $roleName)
+                                        <label class="badge text-primary mx-1 fs-6">{{ $roleName }}</label>
+                                    @endforeach
+                                @endif
+                            </td>
                             <td>
                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ url('/user/'.$user->id) }}" method="POST" class="d-inline">
+                                {{-- <a href="{{ route('users.destroy', $user->id) }}" class="btn btn-danger btn-sm">Delete</a> --}}
+                                <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>

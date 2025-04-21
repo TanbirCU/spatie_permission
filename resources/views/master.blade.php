@@ -31,7 +31,7 @@
                         <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#product">Product</a>
+                        <a class="nav-link" href="{{ route('products.index') }}">Product</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#link">Link</a>

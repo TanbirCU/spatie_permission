@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('master')
 
 @section('content')
 <div class="container">
@@ -11,16 +11,17 @@
             <label for="name">Product Name</label>
             <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $product->name) }}" required>
         </div>
+         <div class="form-group">
+            <label for="price">Title</label>
+            <input type="text" name="price" id="price" class="form-control" value="{{ old('price', $product->title) }}" step="0.01" required>
+        </div>
 
         <div class="form-group">
             <label for="description">Description</label>
             <textarea name="description" id="description" class="form-control" rows="4" required>{{ old('description', $product->description) }}</textarea>
         </div>
 
-        <div class="form-group">
-            <label for="price">Price</label>
-            <input type="number" name="price" id="price" class="form-control" value="{{ old('price', $product->price) }}" step="0.01" required>
-        </div>
+
 
 
         <button type="submit" class="btn btn-primary">Update Product</button>

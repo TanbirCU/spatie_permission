@@ -82,11 +82,11 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
         ];
-        if(!empty($request->password)){
-            $data +=[
-                'password'=> Hash::make($request->password),
-            ];
-        }
+        // if(!empty($request->password)){
+        //     $data +=[
+        //         'password'=> Hash::make($request->password),
+        //     ];
+        // }
         $user->update($data);
         $roleNames = Role::whereIn('id', $request->roles)->pluck('name')->toArray();
        $user->syncRoles($roleNames);

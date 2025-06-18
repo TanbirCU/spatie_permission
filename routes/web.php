@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 // Route::get('/login', 'App\Http\Controllers\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'App\Http\Controllers\LoginController@login');
-Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/permissions', 'App\Http\Controllers\PermissionController');
     Route::resource('/roles', 'App\Http\Controllers\RoleController');

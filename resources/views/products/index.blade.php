@@ -5,7 +5,9 @@
     @endif
 <div class="container">
     <h1>Product List</h1>
-    <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Add Product</a>
+    @can('create role')
+            <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Add Product</a>
+    @endcan
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -24,7 +26,10 @@
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->description }}</td>
                     <td>
-                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        @can('edit role')
+
+                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        @endcan
                         @can('view role')
                             <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm">Show</a>
                         @endcan
